@@ -1,0 +1,33 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		// Teleop launch
+		{
+			"name": "(DEBUG) Teleop",
+			"type": "ros",
+			"request": "launch",
+			"target": "${workspaceFolder}/launch/teleop.launch",
+			"preLaunchTask": "catkin: debug", // tasks.json
+		},
+
+		{
+			"name": "Teleop",
+			"type": "ros",
+			"request": "launch",
+			"target": "${workspaceFolder}/launch/teleop.launch",
+			"preLaunchTask": "catkin: build", // tasks.json
+		},
+
+		{
+			"name": "(DEBUG) Arbitrator",
+			"type": "ros",
+			"request": "launch",
+			"target": "${workspaceFolder}/launch/control_arbitrator.launch",
+			"preLaunchTask": "catkin: debug", // tasks.json
+		},
+
+	]
+}
