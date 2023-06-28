@@ -18,8 +18,8 @@ class FixedTFBroadcaster:
             t.header.frame_id = "turtle1"
             t.header.stamp = rospy.Time.now()
             t.child_frame_id = "carrot1"
-            t.transform.translation.x = 0.0
-            t.transform.translation.y = 2.0
+            t.transform.translation.x = 1.0
+            t.transform.translation.y = 0.0
             t.transform.translation.z = 0.0
 
             t.transform.rotation.x = 0.0

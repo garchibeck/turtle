@@ -1,23 +1,36 @@
  <launch>
+
+    <!-- Creates the first turtle -->
       <node pkg="turtlesim" type="turtlesim_node" name="turtle1_sim"/>
       <node pkg="turtlesim" type="turtle_teleop_key" name="teleop" output="screen"/>
 
 
+    <!-- Turtle 1's TF2 broadcaster -->
     <node name="turtle1_tf2_broadcaster" pkg="learning_tf2" type="turtle_tf2_broadcaster.py" respawn="false" output="screen" >
       <param name="turtle" type="string" value="turtle1" />
     </node>
 
-
+    <!-- Turtle 2's TF2 broadcaster -->
     <node name="turtle2_tf2_broadcaster" pkg="learning_tf2" type="turtle_tf2_broadcaster.py" respawn="false" output="screen" >
       <param name="turtle" type="string" value="turtle2" />
     </node>
 
-
+    <!-- Controller for Turtle 2 to follow Turtle 1's carrot -->
+    <!-- Also spawns Turtle 2 -->
     <node name="turtle2_tf2_listener" pkg="learning_tf2" type="turtle_tf2_listener.py" respawn="false" output="screen" >
       <param name="turtle" type="string" value="turtle2" /> 
     </node>
 
-    <!-- <node pkg="learning_tf2" type="fixed_tf2_broadcaster.py"
-      name="broadcaster_fixed" output="screen"/> -->
+    <!-- Turtle 1's Carrot broadcaster -->
+    <node
+      pkg="learning_tf2" 
+      type="fixed_tf2_broadcaster.py"
+      name="broadcaster_dynamic"
+      output="screen" >
+    </node>
+
+    <!-- Turtle 1's Carrot 2 broadcaster -->
+    <node pkg="learning_tf2" type="dynamic_tf2_broadcaster.py"
+          name="turtle1carrot2_tf2" output="screen"/>
 
   </launch>
